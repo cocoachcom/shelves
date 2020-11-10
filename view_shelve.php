@@ -218,7 +218,7 @@ $img_src = $row['image_location'];
                 pressTimer = setInterval(function () {
                     if (circle.getRadius() < map.getView().getResolution() * 200)
                         circle.setRadius(circle.getRadius() + map.getView().getResolution() * 2);
-                }, 10);
+                }, 1);
             }
             else if (e.type === 'pointerup' || e.type === 'touchend') {
                 if (pressTimer !== 0) {
