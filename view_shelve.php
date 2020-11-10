@@ -216,17 +216,24 @@ $img_src = $row['image_location'];
             }
             else if (e.type === 'pointerup' || e.type === 'mouseup') {
                 if (pressTimer !== 0) {
+
                     flag = false;
                     clearInterval(pressTimer);
                     pressTimer = 0;
-                    var doDownload = confirm("Do you want to add this to Cart?");
+
                     var p0 = map.getPixelFromCoordinate([circle.getCenter()[0] - circle.getRadius(), circle.getCenter()[1] - circle.getRadius()]);
                     var p1 = map.getPixelFromCoordinate([circle.getCenter()[0] + circle.getRadius(), circle.getCenter()[1] + circle.getRadius()]);
+                    if(circle.getRadius() > 400) {
+                        var doDownload = confirm("Do you want to add this to Cart?");
+                        circle.setRadius(0);
+                        vector.setVisible(false);
+                        map.renderSync();
+                        if (doDownload)
+                            downloadCrop(p0, p1);
+                    }
                     circle.setRadius(0);
                     vector.setVisible(false);
-                    map.renderSync();
-                    if (doDownload)
-                        downloadCrop(p0, p1);
+
                 }
             }
             else {
@@ -240,7 +247,6 @@ $img_src = $row['image_location'];
                     }
                 }
             }
-            console.log(flag);
             if (flag === true) {
                 if (pressTimer !== 0) {
                     clearInterval(pressTimer);
