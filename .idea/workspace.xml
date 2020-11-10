@@ -16,13 +16,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view_shelve.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="208" column="35" lean-forward="true" selection-start-line="208" selection-start-column="35" selection-end-line="208" selection-end-column="35" />
+            <state relative-caret-position="281">
+              <caret line="211" column="38" lean-forward="true" selection-start-line="211" selection-start-column="38" selection-end-line="211" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#7545#7919#0#HTML" />
-                <element signature="e#7953#8482#0#HTML" />
-                <element signature="e#8489#8624#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -97,7 +94,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -123,7 +120,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604998889157</updated>
-      <workItem from="1604998890439" duration="6563000" />
+      <workItem from="1604998890439" duration="7985000" />
     </task>
     <task id="LOCAL-00001" summary="change image">
       <created>1604999891694</created>
@@ -174,11 +171,25 @@
       <option name="project" value="LOCAL" />
       <updated>1605017321942</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="event">
+      <created>1605020552909</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605020552909</updated>
+    </task>
+    <task id="LOCAL-00009" summary=" time delay upgrade">
+      <created>1605020918109</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1605020918109</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6563000" />
+    <option name="totallyTimeSpent" value="7985000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -216,7 +227,9 @@
     <MESSAGE value="add git ignore" />
     <MESSAGE value="change image scale" />
     <MESSAGE value="change width" />
-    <option name="LAST_COMMIT_MESSAGE" value="change width" />
+    <MESSAGE value="event" />
+    <MESSAGE value=" time delay upgrade" />
+    <option name="LAST_COMMIT_MESSAGE" value=" time delay upgrade" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -258,13 +271,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view_shelve.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="208" column="35" lean-forward="true" selection-start-line="208" selection-start-column="35" selection-end-line="208" selection-end-column="35" />
+        <state relative-caret-position="281">
+          <caret line="211" column="38" lean-forward="true" selection-start-line="211" selection-start-column="38" selection-end-line="211" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#7545#7919#0#HTML" />
-            <element signature="e#7953#8482#0#HTML" />
-            <element signature="e#8489#8624#0#HTML" />
           </folding>
         </state>
       </provider>

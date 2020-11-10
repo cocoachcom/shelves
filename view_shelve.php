@@ -207,8 +207,6 @@ $img_src = $row['image_location'];
 
     map.addInteraction(new ol.interaction.Interaction({
         handleEvent: function (e) {
-
-
             if (e.type === 'pointerdown') {
                 if (pressTimer != 0) {
                     clearInterval(pressTimer);
