@@ -207,9 +207,8 @@ $img_src = $row['image_location'];
 
     map.addInteraction(new ol.interaction.Interaction({
         handleEvent: function (e) {
-            console.log(e.type);
 
-            if (e.type === 'pointerdown') {
+            if (e.type === 'pointerdown' || e.type === 'touchstart') {
                 if (pressTimer !== 0) {
                     clearInterval(pressTimer);
                     pressTimer = 0;
@@ -221,7 +220,7 @@ $img_src = $row['image_location'];
                         circle.setRadius(circle.getRadius() + map.getView().getResolution() * 2);
                 }, 10);
             }
-            else if (e.type === 'pointerup') {
+            else if (e.type === 'pointerup' || e.type === 'touchend') {
                 if (pressTimer !== 0) {
                     clearInterval(pressTimer);
                     pressTimer = 0;
