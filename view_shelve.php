@@ -37,7 +37,7 @@ body { width:100%; height:100%; background: #ffffff; }
 <script src="js/bootstrap.js" type="text/javascript"></script>
     <style>
         @media (max-width: 768px) {
-            .uneditable-input{
+            #slider{
                 width: 73px;
             }
         }
