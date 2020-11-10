@@ -235,7 +235,14 @@ $img_src = $row['image_location'];
                         downloadCrop(p0, p1);
                 }
             }
-
+            else if (e.type === 'pointerdrag' || e.type === 'pointermove' ) {
+                if (pressTimer !== 0) {
+                    clearInterval(pressTimer);
+                    pressTimer = 0;
+                    circle.setRadius(0);
+                    vector.setVisible(false);
+                }
+            }
             return 1;
         }
     }));
