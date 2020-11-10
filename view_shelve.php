@@ -63,7 +63,6 @@ body { width:100%; height:100%; background: #ffffff; }
 var rCnt = 0.1;
 var cCnt = 0.1;
 
-var mapExtent = [0.00000000, -2329.00000000, 4140.00000000, 0.00000000];
 //var mapExtent = [0.00000000, -2329.00000000, 4140.00000000, 0.00000000];
 var projection = new ol.proj.Projection({
   code: 'xkcd-image',
@@ -71,9 +70,11 @@ var projection = new ol.proj.Projection({
   extent: mapExtent
 });
 
+var mapExtent = [0.00000000, -8213.00000000, 11355.00000000, 0.00000000];
 var mapMinZoom = 0;
-var mapMaxZoom = 5;
+var mapMaxZoom = 6;
 var mapMaxResolution = 1.00000000;
+var tileExtent = [0.00000000, -8213.00000000, 11355.00000000, 0.00000000];
 
 var mapResolutions = [];
 for (var z = 0; z <= mapMaxZoom; z++) {
