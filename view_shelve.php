@@ -207,6 +207,9 @@ $img_src = $row['image_location'];
 
     map.addInteraction(new ol.interaction.Interaction({
         handleEvent: function (e) {
+            if (e.type == 'touchstart'){
+                alert(e.type);
+            }
 
             if (e.type == 'pointerdown') {
                 if (pressTimer != 0) {
@@ -242,7 +245,6 @@ $img_src = $row['image_location'];
                     vector.setVisible(false);
                 }
             }
-
             return 1;
         }
     }));
