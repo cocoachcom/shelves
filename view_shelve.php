@@ -94,7 +94,7 @@ var layer = new ol.layer.Tile({
     projection: 'PIXELS',
     tileGrid: mapTileGrid,
     tilePixelRatio: 1.00000000,
-    url: '<?php echo site_url();?>/wp-content/plugins/myshop-shelf/admin/shelves/uploads/ship/{z}/{x}/{y}.png',
+    url: '<?php echo site_url();?>/wp-content/plugins/myshop-shelf/admin/shelves/uploads/shop1/{z}/{x}/{y}.png',
   })
 });
 
