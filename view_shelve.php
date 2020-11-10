@@ -207,8 +207,10 @@ $img_src = $row['image_location'];
 
     map.addInteraction(new ol.interaction.Interaction({
         handleEvent: function (e) {
+            console.log(e.type);
+
             if (e.type === 'pointerdown') {
-                if (pressTimer != 0) {
+                if (pressTimer !== 0) {
                     clearInterval(pressTimer);
                     pressTimer = 0;
                 }
@@ -217,10 +219,10 @@ $img_src = $row['image_location'];
                 pressTimer = setInterval(function () {
                     if (circle.getRadius() < map.getView().getResolution() * 200)
                         circle.setRadius(circle.getRadius() + map.getView().getResolution() * 2);
-                }, 1);
+                }, 10);
             }
             else if (e.type === 'pointerup') {
-                if (pressTimer != 0) {
+                if (pressTimer !== 0) {
                     clearInterval(pressTimer);
                     pressTimer = 0;
                     var doDownload = confirm("Do you want to add this to Cart?");
@@ -233,14 +235,7 @@ $img_src = $row['image_location'];
                         downloadCrop(p0, p1);
                 }
             }
-            else {
-                if (pressTimer != 0) {
-                    clearInterval(pressTimer);
-                    pressTimer = 0;
-                    circle.setRadius(0);
-                    vector.setVisible(false);
-                }
-            }
+
             return 1;
         }
     }));
