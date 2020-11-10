@@ -35,6 +35,13 @@ body { width:100%; height:100%; background: #ffffff; }
 
 <script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
+    <style>
+        @media (max-width: 768px) {
+            .uneditable-input{
+                width: 73px;
+            }
+        }
+    </style>
 
 </head>
 <body>
