@@ -218,7 +218,7 @@ $img_src = $row['image_location'];
                 pressTimer = setInterval(function () {
                     if (circle.getRadius() < map.getView().getResolution() * 200)
                         circle.setRadius(circle.getRadius() + map.getView().getResolution() * 2);
-                }, 1);
+                }, 10);
             }
             else if (e.type === 'pointerup' || e.type === 'touchend') {
                 if (pressTimer !== 0) {
@@ -234,7 +234,7 @@ $img_src = $row['image_location'];
                         downloadCrop(p0, p1);
                 }
             }
-            else if (e.type === 'pointerdrag' || e.type === 'pointermove' ) {
+            else {
                 if (pressTimer !== 0) {
                     clearInterval(pressTimer);
                     pressTimer = 0;
