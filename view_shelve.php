@@ -205,23 +205,18 @@ $img_src = $row['image_location'];
         alert("Successfully saved!");
     };
 
+    var prevEvent;
+    var flag = false;
+
     map.addInteraction(new ol.interaction.Interaction({
         handleEvent: function (e) {
-
-            if (e.type === 'pointerdown' || e.type === 'touchstart') {
-                if (pressTimer !== 0) {
-                    clearInterval(pressTimer);
-                    pressTimer = 0;
-                }
-                circle.setCenter(map.getCoordinateFromPixel(e.pixel));
-                vector.setVisible(true);
-                pressTimer = setInterval(function () {
-                    if (circle.getRadius() < map.getView().getResolution() * 200)
-                        circle.setRadius(circle.getRadius() + map.getView().getResolution() * 2);
-                }, 10);
+            if (e.type === 'pointerdown' || e.type === 'mousedown') {
+                prevEvent = e.pixel;
+                flag = true;
             }
-            else if (e.type === 'pointerup' || e.type === 'touchend') {
+            else if (e.type === 'pointerup' || e.type === 'mouseup') {
                 if (pressTimer !== 0) {
+                    flag = false;
                     clearInterval(pressTimer);
                     pressTimer = 0;
                     var doDownload = confirm("Do you want to add this to Cart?");
@@ -234,14 +229,31 @@ $img_src = $row['image_location'];
                         downloadCrop(p0, p1);
                 }
             }
-            else if (e.type === 'pointerdrag' || e.type === 'pointermove' ) {
+            else {
+                if (pressTimer !== 0 ) {
+                    if((prevEvent[0] - e.pixel[0])*(prevEvent[0] - e.pixel[0]) > 4000 || (prevEvent[1] - e.pixel[1])*(prevEvent[1] - e.pixel[1]) > 4000){
+                        clearInterval(pressTimer);
+                        pressTimer = 0;
+                        circle.setRadius(0);
+                        vector.setVisible(false);
+                        flag = false;
+                    }
+                }
+            }
+            console.log(flag);
+            if (flag === true) {
                 if (pressTimer !== 0) {
                     clearInterval(pressTimer);
                     pressTimer = 0;
-                    circle.setRadius(0);
-                    vector.setVisible(false);
                 }
+                circle.setCenter(map.getCoordinateFromPixel(e.pixel));
+                vector.setVisible(true);
+                pressTimer = setInterval(function () {
+                    if (circle.getRadius() < map.getView().getResolution() * 200)
+                        circle.setRadius(circle.getRadius() + map.getView().getResolution() * 2);
+                }, 10);
             }
+
             return 1;
         }
     }));
