@@ -57,20 +57,10 @@ body { width:100%; height:100%; background: #ffffff; }
 <input id="slider" type="range" min="0" max="1" step="0.1" value="1" oninput="layer.setOpacity(this.value)">
 
 <script type="text/javascript">
-  //  var viewportmeta = document.querySelector('meta[name="viewport"]');
-  //   if (viewportmeta) {
-  //       viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0';
-  //       document.body.addEventListener('gesturestart', function () {
-  //           viewportmeta.content = 'width=device-width, minimum-scale=0.25, maximum-scale=1.6';
-  //       }, false);
-  //   }
-
-
 
 var rCnt = 0.1;
 var cCnt = 0.1;
 
-//var mapExtent = [0.00000000, -2329.00000000, 4140.00000000, 0.00000000];
 var projection = new ol.proj.Projection({
   code: 'xkcd-image',
   units: 'pixels',
@@ -81,7 +71,6 @@ var mapExtent = [0.00000000, -8213.00000000, 11355.00000000, 0.00000000];
 var mapMinZoom = 0;
 var mapMaxZoom = 6;
 var mapMaxResolution = 1.00000000;
-var tileExtent = [0.00000000, -8213.00000000, 11355.00000000, 0.00000000];
 
 var mapResolutions = [];
 for (var z = 0; z <= mapMaxZoom; z++) {
@@ -98,7 +87,6 @@ var mapTileGrid = new ol.tilegrid.TileGrid({
 
 var layer = new ol.layer.Tile({
   source: new ol.source.XYZ({
-  //  attributions: 'ship; Rendered with <a href="https://www.maptiler.com/desktop/">MapTiler Desktop</a>',
     projection: 'PIXELS',
     tileGrid: mapTileGrid,
     tilePixelRatio: 1.00000000,
@@ -115,73 +103,9 @@ var map = new ol.Map({
     layers: [layer, vector],  
     target: 'map',  
     view: new ol.View({
-    //  projection: ol.proj.get('PIXELS'),
       extent: mapExtent,
-    //  maxResolution: mapTileGrid.getResolution(mapMinZoom)
-      
     })
 });
-
-
-/*
-var raster_OSM = new ol.layer.Tile({
-    source: new ol.source.OSM()
-});
-
-
-var map = new ol.Map({        
-    layers: [],
-    target: 'map',
-    view: new ol.View({
-        center: ol.extent.getCenter(mapExtent),
-        zoom: 2,        
-    })        
-});
-
-for (var i=0; i<cCnt; i++) {
-    for (var j=0; j<rCnt; j++) {
-        var raster_image = new ol.layer.Image({
-            source: new ol.source.ImageStatic({      
-                attributions: '© <a href="http://xkcd.com/license.html">xkcd</a>',   
-                url: './../wp-admin/_custom/shelves/uploads/',
-                // imageExtent: ol.proj.transformExtent([-170+i*15, 75-j*15, -160+i*15, 65-j*15])
-                projection: projection,
-                //imageExtent: mapExtent
-                imageExtent: [i * 4500, j * 2500 , (i+1) * 4500, (j+1) * 2500]
-            })
-        });
-        map.addLayer(raster_image);
-    }
-}
-
-map.addLayer(vector);
-*/
-/* image layer
-layers = new ol.layer.Image({
-    source: new ol.source.ImageStatic({
-      attributions: '© <a href="http://xkcd.com/license.html">xkcd</a>',
-      url: './../wp-admin/_custom/shelves/uploads/',
-      projection: projection,
-      imageExtent: mapExtent
-    })
-});
-var source = new ol.source.Vector({wrapX: false});
-var vector = new ol.layer.Vector({
-source: source
-});
-var map = new ol.Map({
-    layers: [layers, vector],  
-    target: 'map',
-  
-    view: new ol.View({
-      projection: projection,
-      center: ol.extent.getCenter(mapExtent),
-      zoom: 2,
-      maxZoom: 8
-  })
-});
-*/
-
 
 map.getView().fit(mapExtent, map.getSize());
 
