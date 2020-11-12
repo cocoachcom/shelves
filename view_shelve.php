@@ -223,7 +223,7 @@ $img_src = $row['image_location'];
 
                     var p0 = map.getPixelFromCoordinate([circle.getCenter()[0] - circle.getRadius(), circle.getCenter()[1] - circle.getRadius()]);
                     var p1 = map.getPixelFromCoordinate([circle.getCenter()[0] + circle.getRadius(), circle.getCenter()[1] + circle.getRadius()]);
-                    if(circle.getRadius() > 400) {
+                    if(circle.getRadius() > 40) {
                         var doDownload = confirm("Do you want to add this to Cart?");
                         circle.setRadius(0);
                         vector.setVisible(false);
@@ -259,7 +259,6 @@ $img_src = $row['image_location'];
                         circle.setRadius(circle.getRadius() + map.getView().getResolution() * 2);
                 }, 10);
             }
-
             return 1;
         }
     }));
